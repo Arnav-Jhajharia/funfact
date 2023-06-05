@@ -81,7 +81,7 @@
 <div class="iframe-container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/V6gLY-1G4Mc?start=55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-    <div onclick = "window.location.assign('catalog.html')"class="conversation-containers"></div>
+    <div onclick = "window.location.assign('https://main--taupe-heliotrope-dbb3b1.netlify.app?value=Merkle')"class="conversation-containers"></div>
 
     
     <script src="assets/js/main.js"></script>
@@ -90,6 +90,7 @@
 
 
 <script> 
+let n = 1;
     ScrollReveal().reveal('iframe')
    ScrollReveal().reveal('header');
        ScrollReveal().reveal('#noclue');
@@ -164,7 +165,7 @@ color: "blue"
 const messages2 = [
  {
     speaker: "Narrator",
-    content: "How about we take a ride to the JS playground? Click here!"
+    content: "Still a bit shaky? How about we take a ride to the JS playground? Click here!"
  }
 ];
 
@@ -226,10 +227,24 @@ layer.scrollIntoView({ behavior: 'smooth' });
 }
 }
 
+document.addEventListener('keydown', (event) => {
+    let keyCode = event.keyCode;
+    if (keyCode == 38)
+    {
+        event.preventDefault();
+        goToConversation(--n);   
+    }
+    else if(keyCode == 40)
+    {
+        event.preventDefault()
+        goToConversation(++n);
+    }
+})
+
 document.addEventListener('DOMContentLoaded', () => {
 console.log('ah')
 generateConversation()
-// goToConversation(1)
+goToConversation(1)
 });
 </script>
 
